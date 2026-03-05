@@ -17,7 +17,7 @@ def start_scheduler1():
     scheduler1.add_job(
         fetch_live_matches,
         "interval",
-        seconds=CACHE_REFRESH_INTERVAL
+        seconds=120
     )
 
     
@@ -38,10 +38,11 @@ scheduler = AsyncIOScheduler()
 #     )
 
 #     scheduler.start()   
-import asyncio
+# import asyncio
 
 def start_scheduler():
     # Run once immediately
+    
     asyncio.create_task(fetch_upcoming_matches())
 
     # Then run every 3 hours
