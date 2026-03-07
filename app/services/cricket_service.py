@@ -220,6 +220,11 @@ async def fetch_live_matches():
                 key=get_match_priority
             )
 
+            live_matches_sorted = [
+    normalize_scores(match)
+    for match in live_matches_sorted
+]
+
             # ✅ Ensure cache exists
             cache.setdefault("live_matches", {
                 "data": [],
@@ -235,3 +240,35 @@ async def fetch_live_matches():
 
     except Exception as e:
         print("❌ Live match fetch failed:", str(e))
+
+
+def normalize_scores(match):
+    """
+    Ensure score order follows teams order
+    teams[0] score first
+    teams[1] score second
+    """
+
+    teams = match.get("teams", [])
+    scores = match.get("score", [])
+
+    if not teams or not scores:
+        return match
+
+    team1 = teams[0].lower()
+    team2 = teams[1].lower()
+
+    team1_scores = []
+    team2_scores = []
+
+    for s in scores:
+        inning = str(s.get("inning", "")).lower()
+
+        if team1 in inning:
+            team1_scores.append(s)
+
+        elif team2 in inning:
+            team2_scores.append(s)
+
+    match["score"] = team1_scores + team2_scores
+    return match
