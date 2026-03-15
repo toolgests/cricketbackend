@@ -1,3 +1,4 @@
+from app.services.match_service import get_all_matches, get_ended_matches, get_live_matches
 from fastapi import APIRouter
 from app.cache import cache
 
@@ -16,13 +17,35 @@ router = APIRouter(prefix="/cricket", tags=["Cricket"])
 #         "matches": cache["live_matches"]["data"]
 #     }
 
-@router.get("/live")
-async def get_live_matches():
-    live = cache.get("live_matches", {})
+# @router.get("/live")
+# async def get_live_matches():
+#     live = cache.get("live_matches", {})
 
+#     return {
+#         "last_updated": live.get("last_updated"),
+#         "matches": live.get("data") or []
+#     }
+
+@router.get("/live")
+def live_matches():
     return {
-        "last_updated": live.get("last_updated"),
-        "matches": live.get("data") or []
+        "last_updated": cache["last_updated"],
+        "matches": get_live_matches()
+    }
+
+@router.get("/ended")
+def ended_matches():
+    return {
+        "last_updated": cache["last_updated"],
+        "matches": get_ended_matches()
+    }
+
+@router.get("/all")
+def all_matches():
+    
+    return {
+        "last_updated": cache["last_updated"],
+        "matches": get_all_matches()
     }
 
 

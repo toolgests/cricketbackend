@@ -213,6 +213,11 @@ async def fetch_live_matches():
                 if match.get("matchStarted") is True
                 and match.get("matchEnded") is False
             ]
+            #   live_matches = [
+            #     match for match in data.get("data", [])
+            #     if match.get("matchEnded") is True
+            #     and match.get("matchEnded") is True
+            # ]
 
             # ✅ Sort matches by priority
             live_matches_sorted = sorted(

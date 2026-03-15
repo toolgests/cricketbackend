@@ -44,8 +44,13 @@ cache = {
      "all_series": {
         "data": {},
         "last_updated": None
-    }
-    
+    },
+     "matches":  {
+    "matches": [],
+    "last_updated": None
+}
+
+  
 }
 # cache = {
 #     "all_series": {
