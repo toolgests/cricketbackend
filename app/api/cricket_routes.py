@@ -29,9 +29,20 @@ router = APIRouter(prefix="/cricket", tags=["Cricket"])
 @router.get("/live")
 def live_matches():
     return {
-        "last_updated": cache["last_updated"],
+        "last_updated": (
+            cache.get("last_updated").isoformat()
+            if cache.get("last_updated")
+            else None
+        ),
         "matches": get_live_matches()
     }
+
+# @router.get("/live")
+# def live_matches():
+#     return {
+#         "last_updated": cache["last_updated"],
+#         "matches": get_live_matches()
+#     }
 
 @router.get("/ended")
 def ended_matches():
