@@ -8,7 +8,7 @@ def get_all_matches():
     return cache.get("matches", [])
 
 
-# def get_live_matches():
+def get_live_matches():
     """Return live matches"""
     matches = cache.get("matches", [])
 

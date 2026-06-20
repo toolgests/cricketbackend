@@ -1,33 +1,70 @@
-# from typing import Dict
-# from datetime import datetime
+# # from typing import Dict
+# # from datetime import datetime
+
+# # cache = {
+# #     "live_matches": {
+# #         "data": None,
+# #         "last_updated": None
+# #     }
+# # }
+
+# # cache = {
+# #     "upcoming_matches": {
+# #         "data": None,
+# #         "last_updated": None
+# #     }
+# # }
+# # cache = {
+# #     "live_matches": {
+# #         "data": None,
+# #         "last_updated": None
+# #     },
+# #     "upcoming_matches": {
+# #         "data": None,
+# #         "last_updated": None
+# #     }
+# # }
+# # app/cache.py
 
 # cache = {
-#     "live_matches": {
-#         "data": None,
+#       "all_matches": {
+#         "data": {},
 #         "last_updated": None
-#     }
-# }
+#     },
 
-# cache = {
-#     "upcoming_matches": {
-#         "data": None,
-#         "last_updated": None
-#     }
-# }
-# cache = {
 #     "live_matches": {
-#         "data": None,
+#         "data": [],
 #         "last_updated": None
 #     },
 #     "upcoming_matches": {
-#         "data": None,
+#         "data": [],
 #         "last_updated": None
-#     }
+#     },
+
+#      "all_series": {
+#         "data": {},
+#         "last_updated": None
+#     },
+#      "matches":  {
+#     "matches": [],
+#     "last_updated": None
 # }
-# app/cache.py
+
+  
+# }
+# # cache = {
+# #     "all_series": {
+# #         "data": {},
+# #         "last_updated": None
+# #     }
+# # }
+
 
 cache = {
-      "all_matches": {
+    "matches": [],
+    "last_updated": None,
+
+    "all_matches": {
         "data": {},
         "last_updated": None
     },
@@ -36,25 +73,14 @@ cache = {
         "data": [],
         "last_updated": None
     },
+
     "upcoming_matches": {
         "data": [],
         "last_updated": None
     },
 
-     "all_series": {
+    "all_series": {
         "data": {},
         "last_updated": None
-    },
-     "matches":  {
-    "matches": [],
-    "last_updated": None
+    }
 }
-
-  
-}
-# cache = {
-#     "all_series": {
-#         "data": {},
-#         "last_updated": None
-#     }
-# }
