@@ -8,7 +8,7 @@ def get_all_matches():
     return cache.get("matches", [])
 
 
-def get_live_matches():
+# def get_live_matches():
     """Return live matches"""
     matches = cache.get("matches", [])
 
@@ -18,7 +18,18 @@ def get_live_matches():
         and m.get("matchEnded") is False
     ]
 
+def get_live_matches():
+    matches = cache.get("matches", [])
 
+    # print(type(matches))
+    # print(matches[:1])
+
+    return [
+        m for m in matches
+        if isinstance(m, dict)
+        and m.get("matchStarted") is True
+        and m.get("matchEnded") is False
+    ]
 def get_upcoming_matches():
     """Return upcoming matches"""
 
