@@ -66,6 +66,7 @@ def ended_matches():
 @router.get("/all")
 def all_matches():
     
+    
     return {
         "last_updated": cache["last_updated"],
         "matches": get_all_matches()

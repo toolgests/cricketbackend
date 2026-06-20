@@ -41,12 +41,22 @@ def get_upcoming_matches():
     ]
 
 
-def get_ended_matches():
-    """Return finished matches"""
+# def get_ended_matches():
+#     """Return finished matches"""
 
+#     matches = cache.get("matches", [])
+
+#     return [
+#         m for m in matches
+#         if m.get("matchEnded") is True
+#     ]
+
+
+def get_ended_matches():
     matches = cache.get("matches", [])
 
     return [
         m for m in matches
-        if m.get("matchEnded") is True
+        if isinstance(m, dict)
+        and m.get("matchEnded") is True
     ]
